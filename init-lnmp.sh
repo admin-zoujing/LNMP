@@ -40,6 +40,7 @@ rpm -e --nodeps `rpm -qa | grep boost`
 
 #4、配置Mysql服务
 cd $sourceinstall
+wget https://downloads.mysql.com/archives/get/file/mysql-5.7.24.tar.gz
 groupadd mysql
 useradd -g mysql -s /sbin/nologin mysql
 mkdir -pv /usr/local/mysql/boost
