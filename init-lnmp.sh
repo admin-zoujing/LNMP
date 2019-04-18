@@ -371,6 +371,11 @@ systemctl daemon-reload && systemctl restart php-fpm.service && systemctl restar
 # sed -i '45c \ServerTokens Prod;' /etc/httpd/conf/httpd.conf 
 # sed -i '46c \ServerSignature Off;' /etc/httpd/conf/httpd.conf 
 # sed -i '44 s|^|#|g' /etc/httpd/conf/httpd.conf 
+firewall-cmd --permanent --zone=public --add-port=3306/tcp --permanent;
+firewall-cmd --permanent --query-port=3306/tcp;
+firewall-cmd --permanent --zone=public --add-port=80/tcp --permanent;
+firewall-cmd --permanent --query-port=80/tcp;
+firewall-cmd --reload;
 
 ps aux |grep mysql
 sleep 5
